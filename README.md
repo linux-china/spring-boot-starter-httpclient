@@ -20,7 +20,7 @@ http client已经非常简单啦,为何还需要创建一个starter httpclient,�
 
 * 在Spring Boot的application.properties文件中添加http client的一些相关配置,当然也可以不需要配置如下:
                     
-          spring.httpclient.connectTimeout=diamond:///mdbcomm-daily?namespace=1
+          spring.httpclient.connectTimeout=2000
 
 * 接下来在你的代码中直接应用cacheManager，然后就可以啦。
         
