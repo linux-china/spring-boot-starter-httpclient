@@ -8,6 +8,7 @@ import org.apache.http.HttpHost;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.fluent.Executor;
+import org.apache.http.impl.client.DefaultConnectionKeepAliveStrategy;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.autoconfigure.MetricsDropwizardAutoConfiguration;
@@ -63,6 +64,7 @@ public class HttpClientAutoConfiguration {
         }
         HttpClientBuilder clientBuilder = InstrumentedHttpClients.custom(metrics, nameStrategy);
         clientBuilder.setDefaultRequestConfig(requestConfig);
+        clientBuilder.setKeepAliveStrategy(new DefaultConnectionKeepAliveStrategy());
         return clientBuilder.build();
     }
 
