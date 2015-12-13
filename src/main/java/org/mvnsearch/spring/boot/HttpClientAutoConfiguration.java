@@ -10,8 +10,11 @@ import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.fluent.Executor;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.autoconfigure.MetricsDropwizardAutoConfiguration;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +28,7 @@ import org.springframework.context.annotation.Configuration;
 @SuppressWarnings("ALL")
 @Configuration
 @ConditionalOnClass(HttpClient.class)
-@ConditionalOnBean(MetricRegistry.class)
+@AutoConfigureAfter(MetricsDropwizardAutoConfiguration.class)
 @EnableConfigurationProperties(HttpClientProperties.class)
 public class HttpClientAutoConfiguration {
     @Autowired
