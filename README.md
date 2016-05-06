@@ -49,7 +49,7 @@ http client已经非常简单啦,为何还需要创建一个starter httpclient,�
 ### httpclient metrics
 HttpClient结合了DropWizard的metrics,这样很方便获取http client的metrics信息, 
 目前可以记录的级别主要是: METHOD_ONLY, HOST_AND_METHOD(default), QUERYLESS_URL_AND_METHOD, 以下是metrics的输出:
-
+```
 
       -- Gauges ----------------------------------------------------------------------
       org.apache.http.conn.HttpClientConnectionManager.available-connections
@@ -78,8 +78,7 @@ HttpClient结合了DropWizard的metrics,这样很方便获取http client的metri
                     98% <= 117.63 milliseconds
                     99% <= 117.63 milliseconds
                   99.9% <= 117.63 milliseconds
-
-
+```
 ### FAQ
 
 * HttpClient线程安全吗? HttpClient implementations are expected to be thread safe.
