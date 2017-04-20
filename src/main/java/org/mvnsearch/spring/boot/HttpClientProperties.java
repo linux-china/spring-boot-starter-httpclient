@@ -28,6 +28,14 @@ public class HttpClientProperties {
      */
     private Integer socketTimeout;
     /**
+     * pooling connection manager max connection in the pool.
+     */
+    private Integer maxConnTotal;
+    /**
+     * max connections for pre route.
+     */
+    private Integer maxConnPerRoute;
+    /**
      * metric name strategy: METHOD_ONLY, HOST_AND_METHOD(default), QUERYLESS_URL_AND_METHOD
      */
     private String metricNameStrategy = "HOST_AND_METHOD";
@@ -62,6 +70,22 @@ public class HttpClientProperties {
 
     public void setSocketTimeout(Integer socketTimeout) {
         this.socketTimeout = socketTimeout;
+    }
+
+    public Integer getMaxConnTotal() {
+        return maxConnTotal;
+    }
+
+    public void setMaxConnTotal(Integer maxConnTotal) {
+        this.maxConnTotal = maxConnTotal;
+    }
+
+    public Integer getMaxConnPerRoute() {
+        return maxConnPerRoute;
+    }
+
+    public void setMaxConnPerRoute(Integer maxConnPerRoute) {
+        this.maxConnPerRoute = maxConnPerRoute;
     }
 
     public String getMetricNameStrategy() {
