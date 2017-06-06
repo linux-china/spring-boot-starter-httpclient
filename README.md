@@ -90,3 +90,4 @@ It is recommended that the same instance of this class is reused for multiple re
 ### 参考文档
 
 * Http Components: http://hc.apache.org/
+* HttpClient 4 Tutorial: http://www.baeldung.com/httpclient-guide
