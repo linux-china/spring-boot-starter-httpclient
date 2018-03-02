@@ -65,6 +65,12 @@ public class HttpClientAutoConfiguration {
         HttpClientBuilder clientBuilder = InstrumentedHttpClients.custom(metrics, nameStrategy);
         clientBuilder.setDefaultRequestConfig(requestConfig);
         clientBuilder.setKeepAliveStrategy(new DefaultConnectionKeepAliveStrategy());
+        if (properties.getMaxConnTotal() != null) {
+            clientBuilder.setMaxConnTotal(properties.getMaxConnTotal());
+        }
+        if (properties.getMaxConnPerRoute() != null) {
+            clientBuilder.setMaxConnPerRoute(properties.getMaxConnPerRoute());
+        }
         return clientBuilder.build();
     }
 
